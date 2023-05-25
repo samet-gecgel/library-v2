@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    min-height: 100%;
+    position: relative;
+}
+.nav1{
+    background-color: #1D1D23;
+    padding: 2.5rem;
+    color: white;
+    display: flex;
+    /* justify-content: space-between;*/
+} 
+.nav1 .bas{
+    display: flex;
+}
+.nav1 .bas i{
+    font-size: 3.75rem;
+    padding-right: 1.875rem;
+}
+.nav1 .bas h1{
+    font-size: 2.5rem;
+    margin-top: 4px;
+}
+.nav1 .yazi{
+    font-size: 1.5rem;
+    margin-left: 10%;
+}
+.nav-alt{
+    background-color: #29293A;
+    padding: 1.25rem 1.25rem 1.25rem 100px;
+}
+.nav-alt ul{
+    list-style: none;
+    display: flex;
+    
+}
+.nav-alt ul li a {
+    text-decoration: none;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+.nav-alt ul li a:hover{
+    cursor: pointer;
+    color: rgb(16, 173, 194);
+}
+.orta{
+    background-image: url("../resim/kapak.png");
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    
+}
+.orta h1{
+    position: absolute;
+    color: white;
+    top: 40%;
+    left: 2%;
+    font-size: 3rem;
+}
+footer{
+    background-color: #1D1D23;
+    padding: 2.5rem;
+    color: white;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    bottom: 0;
+    left: 0px;
+}
+footer i{
+    font-size: 3.75rem;
+    padding-right: 50px;
+}
+.footer-yazi{
+    font-size: 18px;
+    
+}
+.footer-yazi .het{
+    margin: 1.25rem;
+}
+@media screen and (max-width: 768px) {
+
+    .nav-alt{
+        flex-direction: column;
+        padding: 1.25rem 1.25rem 1.25rem 10px;
+    }
+    .nav-alt ul {
+    flex-direction: row;
+  }
+  
+  .nav-alt ul li a {
+    padding: 1.5rem;
+    font-size: 1rem;
+    line-height: 0.5rem;
+  }
+  
+  .nav1 .yazi {
+    display: none;
+  }
+}
+  
+@media screen and (max-width: 576px) {
+    .nav1 .bas i{
+        font-size: 3rem;
+    }
+    .nav1 .bas h1{
+        font-size: 2rem;
+    }
+    .nav-alt {
+        flex-direction: column;
+    }
+    .nav-alt ul{
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-alt {
+        flex-direction: column;
+    }
+    .nav-alt ul{
+        flex-direction: row;
+    }
+    .orta h1{
+        font-size: 2rem;
+    }
+    footer i{
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    footer .footer-yazi{
+        font-size: 0.75rem;
+    } 
+}

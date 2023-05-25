@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="fsgecgelibrary gecgelibrary">
+  <meta name="author" content="Samet Geçgel">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/resim/book.png">
+  <link rel="stylesheet" href="/css/loginStyle.css">
+  <title>GeçgeLibrary</title>
+</head>
+<body>
+  <div class="container">
+    <div class="login">
+      <div class="bas">
+        <i class="fa-solid fa-book"></i>
+        <h1>GeçgeLibrary</h1>
+      </div>
+      <form method="POST" class="form">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <div class="input-group">
+          <input required="" type="text" autocomplete="off" class="box" name="email" id="email" placeholder="E-posta Adresi">
+          <input required="" type="password" autocomplete="off" class="box" name="password" id="password" placeholder="Şifreniz">
+        </div>
+        <input type="submit" value="Giriş Yap" id="submit"> <br>
+        <p><a href="/register">Hesabınız yoksa kayıt olmak için tıklayınız</a></p>
+
+      </form>
+    </div>
+      <div class="foto">
+        <img src="/resim/giris.jpg" alt="giriş resmi">
+      </div>
+  </div>
+</body>
+</html>
+
+

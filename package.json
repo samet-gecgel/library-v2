@@ -1,0 +1,32 @@
+{
+  "name": "gecgelibray",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Samet Gecgel",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "connect-session-sequelize": "^7.1.7",
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.11.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.2.0",
+    "nodemailer": "^6.9.2",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "sequelize": "^6.31.1",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}

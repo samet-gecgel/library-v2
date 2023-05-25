@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* .container{
+    min-height: 100%;
+    position: relative;
+} */
+.nav1{
+    width: 100vw;
+    background-color: #1D1D23;
+    padding: 2.5rem;
+    color: white;
+    display: flex;
+    /* justify-content: space-between;*/
+} 
+.nav1 .bas{
+    display: flex;
+}
+.nav1 .bas i{
+    font-size: 3.75rem;
+    padding-right: 1.875rem;
+}
+.nav1 .bas h1{
+    font-size: 2.5rem;
+    margin-top: 4px;
+}
+.nav1 .yazi{
+    font-size: 1.5rem;
+    margin-left: 10%;
+}
+.nav-alt{
+    width: 100vw;
+    background-color: #29293A;
+    padding: 1.25rem 1.25rem 1.25rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.nav-alt ul{
+    list-style: none;
+    display: flex;
+    
+}
+.nav-alt ul li a {
+    text-decoration: none;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+.nav-alt ul li a:hover{
+    cursor: pointer;
+    color: rgb(16, 173, 194);
+}
+
+.ara .arama{
+    background-color: #eee;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    width: 13em;
+    border-radius: 1rem;
+    color: lightcoral;
+    box-shadow: 0 0.4rem #dfd9d9;
+    cursor: pointer;
+}
+.ara .arama:focus{
+    outline-color: lightcoral;
+    
+}
+.orta-kisim{
+    margin-bottom: 100px;
+}
+.orta-kisim h1{
+    margin-top: 50px;
+    text-align: center;
+}
+ .kitaplar{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+.kitaplar a{
+    color: black;
+    
+}
+.kitaplar img{
+    max-width: 250px;
+    width: 100%;
+    max-height: auto;
+    object-fit: cover;
+}
+.kitaplar h4{
+    text-align: center;
+    font-size: 1rem;
+    padding: 30px 0;
+    margin-bottom: 10px;
+}
+#yukari {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+}
+#yukari:hover{
+    background-color: #555;
+}
+footer{
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
+    background-color: #1D1D23;
+    padding: 2.5rem;
+    color: white;
+    width: 100%;
+    display: flex;
+    
+}
+footer i{
+    font-size: 3.75rem;
+    padding-right: 50px;
+}
+.footer-yazi{
+    font-size: 18px;
+    
+}
+.footer-yazi .het{
+    margin: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+
+    .nav-alt{
+        flex-direction: column;
+        padding: 1.25rem 1.25rem 1.25rem 10px;
+    }
+    .nav-alt ul {
+    flex-direction: row;
+  }
+  
+  .nav-alt ul li a {
+    padding: 1.5rem;
+    font-size: 1rem;
+    line-height: 0.5rem;
+  }
+  
+  .nav1 .yazi {
+    display: none;
+  }
+    .kitaplar {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+  
+@media screen and (max-width: 576px) {
+    .nav1 .bas i{
+        font-size: 3rem;
+    }
+    .nav1 .bas h1{
+        font-size: 2rem;
+    }
+    .nav-alt {
+        flex-direction: column;
+    }
+    .nav-alt ul{
+        flex-direction: row;
+    }
+    .kitaplar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nav-alt {
+        flex-direction: column;
+    }
+    .nav-alt ul{
+        flex-direction: row;
+        margin-bottom: 6%;
+    }
+    .kitaplar {
+      grid-template-columns: 1fr;
+    }
+    footer i{
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    footer .footer-yazi{
+        font-size: 0.75rem;
+    } 
+}
+      
+      

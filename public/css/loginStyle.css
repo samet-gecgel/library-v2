@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    position: relative;
+    
+    background: linear-gradient(to right, #72a7a8 0%,#d7e2e2 100%); 
+  }
+  .container{
+    position: relative;
+    background-color: white;
+    display: flex;
+    height: 100%;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    margin-top: 100px;
+  }
+  .login{
+    width: 50%;
+    align-items: flex-start;
+    margin-left: 1.25rem;
+    box-shadow: 10px 10px 10px gray;
+    
+    
+  }
+  .login .bas{
+    margin: 2.5rem;
+    display: flex;
+  }
+  .login .bas i{
+    font-size: 3em;
+    padding-right: 1.875rem;
+  }
+  .login .bas h1{
+    align-items: center;
+    margin-top: 4px;
+  }
+  .login .form{
+    margin-top: 200px;
+  }
+  .login .box{
+    padding: 10px;
+    margin: 20px 20px 20px 70px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+  }
+  #submit{
+    padding: 5px 1.875rem;
+    margin: 1.25rem 1.25rem 1.25rem 100px; 
+    background: black;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  .login #submit:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+  .login p a{
+    color: black;
+    text-decoration: none;
+    margin: 2.5rem;
+  }
+  .foto img{
+    width: 100%;
+    max-width: 400px;
+    max-height: 700px;
+    height: 100%;
+    object-fit: fill;
+  }
+  @media (max-width : 780px){
+    .container {
+      width: 90%;
+      height: 100%;
+    }
+    .login .bas h1{
+      font-size: 1.5rem;
+    }
+    .foto{
+      width: 45vw;
+
+    }
+  }
+  @media (max-width: 576px) {
+    .container {
+      width: 80%;
+      height: 100%;
+    }
+    .login{
+      width: 90vw;;
+    }
+    .form{
+      margin: auto;
+      margin-top: 80px;
+    }
+    
+    .foto{
+      display: none;
+      width: 50vw ;
+    }
+
+  }
+
+  @media (max-width: 480px) {
+    .container{
+      flex-direction: column;
+      height: auto;
+      width: 90%;
+      margin-bottom: 100px; 
+    }
+    .login{
+      width: 100%;
+      margin-left: 0;
+    }
+    .login .bas{
+      text-align: center;
+    }
+    .login .form{
+      margin-top: 50px;
+    }
+    .login .bas h1{
+      font-size: 1.5rem;
+    }
+    
+    .foto{
+      display: none;
+    }
+    
+    
+  }
+  

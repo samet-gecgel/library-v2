@@ -1,0 +1,262 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    min-height: 100%;
+    position: relative;
+}
+.nav1{
+    background-color: #1D1D23;
+    padding: 2.5rem;
+    color: white;
+    display: flex;
+    /* justify-content: space-between;*/
+} 
+.nav1 .bas{
+    display: flex;
+}
+.nav1 .bas i{
+    font-size: 3.75rem;
+    padding-right: 1.875rem;
+}
+.nav1 .bas h1{
+    font-size: 2.5rem;
+    margin-top: 4px;
+}
+.nav1 .yazi{
+    font-size: 1.5rem;
+    margin-left: 10%;
+}
+.nav-alt{
+    background-color: #29293A;
+    padding: 1.25rem 1.25rem 1.25rem 100px;
+}
+.nav-alt ul{
+    list-style: none;
+    display: flex;
+    
+}
+.nav-alt ul li a {
+    text-decoration: none;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+.nav-alt ul li a:hover{
+    cursor: pointer;
+    color: rgb(16, 173, 194);
+}
+.orta-kisim{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.orta-kisim h1{
+    text-align: center;
+}
+.orta-kisim .kitap-detay {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    position: relative;
+}
+.orta-kisim .kitap-detay .resim {
+    width: 30%;
+}
+.orta-kisim .kitap-detay .resim img{
+    max-width: 300px;
+    width: 100%;
+    margin-left: 10%;
+    max-height: auto;
+    object-fit: contain;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+.orta-kisim .kitap-detay .bilgi{
+    width: 70%;
+    padding-left: 1.25rem;
+}
+table{
+    margin-left: 100px;
+    width: 80%;
+}
+tr{
+    font-size: 1.5rem;
+    line-height: 5rem;
+}
+.bas{
+    margin-right: 50px;
+    font-weight: bold;
+}
+.btn-alt{
+    display: flex;
+    top: 100%;
+    left: 50%;
+    position: absolute;   
+    transform: translate(-50%, -50%);
+
+}
+.butonkismi{
+    padding: 15px 60px;
+    background-color: black;
+    color: white;
+    margin-right: 20px;
+}
+.butonsil{
+    padding: 15px 100px;
+    background-color: red;
+    color: white;
+    
+}
+footer{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background-color: #1D1D23;
+    padding: 2.5rem;
+    color: white;
+    width: 100%;
+    display: flex;
+}
+footer i{
+    font-size: 3.75rem;
+    padding-right: 50px;
+}
+.footer-yazi{
+    font-size: 18px;
+    
+}
+.footer-yazi .het{
+    margin: 1.25rem;
+}
+@media screen and (max-width: 768px) {
+
+.nav-alt{
+    flex-direction: column;
+    padding: 1.25rem 1.25rem 1.25rem 10px;
+}
+    .nav-alt ul {
+    flex-direction: row;
+}
+.nav-alt ul li a {
+    padding: 1.5rem;
+    font-size: 1rem;
+    line-height: 0.5rem;
+}
+  
+.nav1 .yazi {
+    display: none;
+}
+.kitaplar {
+  grid-template-columns: repeat(3, 1fr);
+}
+}
+@media screen and (max-width: 576px) {
+    
+    .nav1 .bas i{
+        font-size: 3rem;
+    }
+    .nav1 .bas h1{
+        font-size: 2rem;
+    }
+    .nav-alt {
+        flex-direction: column;
+    }
+    .nav-alt ul{
+        flex-direction: row;
+    } 
+    .orta-kisim{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .orta-kisim .kitap-detay {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        /* align-items:center ;     */
+    }
+    .orta-kisim h1{
+        text-align: center;
+        font-size: 1rem;
+    }
+    .orta-kisim .kitap-detay .resim img{
+        margin-left: 100%;
+        width: 35vw;
+        /* height: 300px; */
+        margin-bottom: 50px;
+    }
+    .orta-kisim .kitap-detay .bilgi{
+        width: 100%;
+        padding-left: 1rem;
+    }
+    table{
+        margin-left: 10px;
+        width: 80%;
+    }
+    tr{
+        font-size: 1rem;
+        line-height: 3rem;
+    }
+    .bas{
+        margin-right: 30px;
+        font-weight: bold;
+    }
+    .butonkismi{
+        position: absolute;
+        margin-top: 50px;
+        padding: 5px 30px;
+    }
+
+    footer{
+        margin-top: 80px;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        padding: 2.5rem;
+        width: 100%;
+        display: flex;
+        
+    }
+    footer i{
+        font-size: 2rem;
+    }
+    .footer-yazi{
+        font-size: 0.8rem;
+        
+    }
+    .footer-yazi .het{
+        margin: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {as
+    .nav1 .bas i{
+        font-size: 2rem;
+    }
+    .nav1 .bas h1{
+        font-size: 1.5rem;
+    }
+    .nav-alt {
+        flex-direction: column;
+      }
+    .nav-alt ul{
+        flex-direction: row;
+    }
+    .nav-alt ul li a{
+        font-size: 0.75rem;
+    }
+    .kitaplar {
+      grid-template-columns: 1fr;
+    }
+    .butonkismi{
+        width: 60%;
+    }
+    footer i{
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    footer .footer-yazi{
+        font-size: 0.75rem;
+    } 
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="fsgecgelibrary gecgelibrary">
+  <meta name="author" content="Samet Geçgel">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/resim/book.png">
+  <link rel="stylesheet" type="text/css" href="/css/kitapdetay.css">
+  <title>GeçgeLibrary</title>
+</head>
+<body>
+  <div class="container"> 
+      <nav class="ust">
+      <div class="kapsayici nav1">
+        <div class="bas">
+          <i class="fa-solid fa-book"></i>
+          <h1>GeçgeLibrary</h1>
+        </div>
+          <div class="yazi">“Kitaplar zamanın büyük denizinde dikilmiş deniz fenerleridir.”</div>
+        </div>
+        <div class="nav-alt"><ul>
+          <li><a href="/anasayfa" class="nav-link">Anasayfa</a></li>
+          <% if (isAuth) { %> 
+            <li><a href="#" class="nav-link"><%= fullname %></a></li>
+            <li><a href="/" class="nav-link">Kitaplar</a></li>
+            <li><a href="/kitapekle" class="nav-link">Kitap Ekle</a></li>
+            <li><a href="/profil" class="nav-link">Hesabım</a></li>
+            <% } %>
+            
+            <% if (isAuth) { %>
+              <li><a href="/logout" class="nav-link">Çıkış Yap</a></li>
+            <% } else { %>
+
+              <li><a href="/register" class="nav-link">Kayıt Ol</a></li>
+              <li><a href="/login" class="nav-link">Giriş Yap</a></li>
+              <% } %>
+        </ul></div>
+      </nav>
+<div class="orta-kisim">
+        <h1>Kitap Detayı</h1>
+        <div class="kitap-detay">
+            <div class="resim"><img src="<%= books.resim %>" alt=""></div>
+            <div class="bilgi">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="bas"><h3>Kitap Adı:</h3></td>
+                            <td><%= books.kitapadi %></td>
+                        </tr>
+                        <tr>
+                            <td class="bas"><h3>Yazar Adı:</h3></td>
+                            <td><%= books.yazaradi %></td>
+                        </tr>
+                        <tr>
+                            <td class="bas"><h3>Yayınevi Adı:</h3></td>
+                            <td><%= books.yayinevi %></td>
+                        </tr>
+                        <tr>
+                            <td class="bas"><h3>Sayfa Sayısı:</h3></td>
+                            <td><%= books.sayfasayisi %></td>
+                        </tr>
+                        <tr>
+                            <td class="bas"><h3>Kategori:</h3></td>
+                            <td><%= books.kategori %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn-alt">
+                  <a style="cursor: pointer;" href="/kitapDuzenle/<%= books.kitapno %>">
+                    <button class="butonkismi">Kitap Bilgilerini Güncelle</button>
+                  </a>
+                <a style="cursor: pointer;" href="/delete/<%= books.kitapno %>">
+                    <button class="butonsil">Kitabı Sil</button>
+                  </a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <i class="fa-solid fa-book"></i>
+        <div class="footer-yazi">
+          <h3 class="het">iletişim için benimle irtibata geçiniz.</h3>
+          
+          <h3>© 2023 Tüm Haklar bana aittir.</h3>
+        </div>
+      </footer>
+    </div>
+</body>
+</html>

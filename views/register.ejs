@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="fsgecgelibrary gecgelibrary">
+    <meta name="author" content="Samet Geçgel">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeçgeLibrary</title>
+    <link rel="stylesheet" href="/css/registerstyle.css">
+</head>
+<body>
+  <div class="container">
+    <div class="register">
+        <div class="bas">
+            <i class="fa-solid fa-book"></i>
+            <h1>GeçgeLibrary</h1>
+        </div>
+        <form  method="POST" class="form">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="text" placeholder="Ad ve Soyad" class="box" id="fullname" name="fullname" required><br>
+            <input type="email" placeholder="E-posta Adresiniz" class="box" id="email" name="email" required><br>
+            <input type="password" placeholder="Şifre" class="box" id="password" name="password" required><br>
+            <!-- <input type="password" placeholder="Şifre tekrardan" class="box" id="confirmPassword" name="confirmPassword" required><br> -->
+            <input type="submit" value="Kayıt Ol" id="submit">
+            <p><a href="/login">Hesabınız varsa giriş yapmak için tıklayınız</a></p>
+        </form>
+    </div>
+        <div class="foto">
+            <img src="/resim/kayıt.jpg" alt="kayıt ol">
+        </div>
+</div>
+</body>
+</html>
