@@ -6,11 +6,11 @@ const config = {
         password: 'Sifre1453.',
         database: 'bookdb',
     },
-    // email: {
-    //     username : "sgrio1453gmail.com",
-    //     password : "pqfqvkrgpvjffysi",
-        
-    // }
+    email: {
+        username : "sgrio1453gmail.com",
+        password : "pqfqvkrgpvjffysi",
+        from : "sgrio1453gmail.com"
+    }
   };
 
   module.exports = config;

@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Book = require("../models/book");
 const authController = require("../controllers/auth");
-// const User = require("../models/user");
 const csrf = require("../middlewares/csrf")
 
 router.get("/register", csrf,  authController.get_register);

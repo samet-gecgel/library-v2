@@ -42,8 +42,7 @@
         <div class="container ortakisim">
           <div class="row">
             <div class="col-md-12">
-              <form method="post">
-                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+              <form method="post" enctype="multipart/form-data" action="/kitapDuzenle/<%= book.kitapno %>?_csrf=<%= csrfToken %>">
                 <input type="hidden" name="kitapno", value="<%= book.kitapno %>">
                 <div class="row">
                   <div class="col-25">

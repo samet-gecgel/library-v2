@@ -7,7 +7,7 @@ exports.get_register = async function (req, res) {
 
   try{
     return res.render("register",{
-      csrfToken: req.csrfToken()
+      // csrfToken: req.csrfToken()
     });
   }
   catch(err){
@@ -34,20 +34,12 @@ exports.post_register = async function (req,res){
       password : hashedPassword
     });
 
-    // var mailOptions = {
-    //   from: config.email.user,
-    //   to: newUser.email,
-    //   subject: 'Hesabınız Oluşturuldu',
-    //   text: 'Hesabınız başarılı şekilde oluşturuldu'
-    // };
-
-    // emailService.sendMail(mailOptions, function(error, info){
-    //   if (error) {
-    //     console.log(error);
-    //   } else {
-    //     console.log('Email sent: ' + info.response);
-    //   }
-    // });
+    emailService.sendMail({
+      from: config.email.from,
+      to: newUser.email,
+      subject: "Hesabınızı oluşturuldu.",
+      text: "Hesabınızı başarılı şekilde oluşturuldu."
+  });
 
     req.session.message = { text : "Hesabınıza tekrar giriş yapabilirsiniz"  , class: "success"};
 
