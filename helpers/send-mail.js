@@ -2,11 +2,12 @@ const nodemailer = require("nodemailer");
 const config = require("../views/config");
 
 var tranporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    secureConnection: false,
+    host: "smtp-mail.outlook.com",
+    // service : 'gmail',
+    secure : false,
     port: 587,
     tls: {
-        ciphers: 'SSLv3'
+        rejectUnauthorized : true
     },
     auth: {
         user: config.email.username,
@@ -15,3 +16,4 @@ var tranporter = nodemailer.createTransport({
 });
 
 module.exports = tranporter;
+

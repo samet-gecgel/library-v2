@@ -2,6 +2,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const emailService = require("../helpers/send-mail");
 const config = require("../views/config");
+const crypto = require("crypto");
 
 exports.get_register = async function (req, res) {
 
@@ -34,8 +35,8 @@ exports.post_register = async function (req,res){
       password : hashedPassword
     });
 
-    emailService.sendMail({
-      from: config.email.from,
+      emailService.sendMail({
+      from: "sametgecgel68@hotmail.com",
       to: newUser.email,
       subject: "Hesabınızı oluşturuldu.",
       text: "Hesabınızı başarılı şekilde oluşturuldu."
@@ -107,6 +108,102 @@ exports.post_login = async function (req, res) {
   }
 }
 
+exports.get_reset = async function (req, res) {
+  const message = req.session.message;
+  delete req.session.message;
+
+  try{
+    return res.render("reset-password",{
+      message : message
+    });
+  }
+  catch(err){
+    console.log(err, req.csrfToken());
+  }
+}
+
+exports.post_reset = async function (req, res) {
+  const email = req.body.email;
+
+  try{
+    var token = crypto.randomBytes(32).toString("hex");
+    const user = await User.findOne({where : {email : email}});
+
+    if(!user){
+      req.session.message = { text : "Email Bulunamadı" , class: "warning"};
+      return res.redirect("reset-password");
+    }
+
+    user.resetToken = token;
+    user.resetTokenExpiration = Date.now() + (1000 * 60 *60);
+    await user.save();
+
+    emailService.sendMail({
+      from: config.email.from,
+      to: email,
+      subject: "Parola Sıfırlama",
+      html : `
+      <p>Parolanızı güncellemek için aşağıdaki linke tıklayınız.</p>
+      <p>
+        <a href="http://localhost:3000/new-password/${token}>Parola Sıfırla<a/>" 
+      </p>
+      `
+  });
+
+  req.session.message = {text : "Parolanızı sıfırlamak için eposta adresinizi kontrol ediniz.", class : "success"};
+  res.redirect("login");
+
+  }
+  catch(err){
+    console.log(err, req.csrfToken());
+  }
+}
+
+exports.get_newpassword = async function (req, res) {
+  const token = req.params.token;
+
+  try{
+
+    const user = await User.findOne({where : {resetToken : token, resetTokenExpiration : {
+       [op.gt] : Date.now()}}});
+    return res.render("new-password",{
+      token : token,
+      userId : user.id
+    });
+  }
+  catch(err){
+    console.log(err, req.csrfToken());
+  }
+}
+
+exports.post_newpassword = async function (req, res) {
+  const token = req.body.token;
+  const userId = req.body.userId;
+  const newPassword = req.body.password;
+
+  try{
+    const user = await User.findOne({
+      where : {
+        resetToken : token, 
+        resetTokenExpiration : {
+            [op.gt] : Date.now()
+          },    
+          id : userId
+        }
+      });
+
+    user.password = await bcrypt.hash(newPassword,10);
+    user.resetToken = null;
+    user.resetTokenExpiration = null;
+    await user.save();
+
+    req.session.message = {text : "Parolanızı başarılı şekilde güncellediniz.", class : "success"};
+    return res.redirect("login");
+  }
+  catch(err){
+    console.log(err, req.csrfToken());
+  }
+}
 
 exports.get_logout = async function (req, res) {
   try{

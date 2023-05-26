@@ -7,9 +7,9 @@ const config = {
         database: 'bookdb',
     },
     email: {
-        username : "sgrio1453gmail.com",
-        password : "pqfqvkrgpvjffysi",
-        from : "sgrio1453gmail.com"
+        username : "sametgecgel68@hotmail.com",
+        password : "Sgrio1453.",
+        from : "sametgecgel68@hotmail.com"
     }
   };
 
