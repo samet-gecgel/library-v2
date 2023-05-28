@@ -28,7 +28,9 @@
             <li><a href="#" class="nav-link"><%= fullname %></a></li>
             <li><a href="/" class="nav-link">Kitaplar</a></li>
             <li><a href="/kitapekle" class="nav-link">Kitap Ekle</a></li>
-            <li><a href="/profil" class="nav-link">Hesabım</a></li>
+            <% users.forEach(function(users) { %>
+              <li><a href="/profil/<%= users.userid %>" class="nav-link">Hesabım</a></li>
+            <% }) %>
             <% } %>
             
             <% if (isAuth) { %>

@@ -42,8 +42,9 @@
         <div class="container ortakisim">
           <div class="row">
             <div class="col-md-12">
-              <form method="post" enctype="multipart/form-data" action="/kitapDuzenle/<%= book.kitapno %>?_csrf=<%= csrfToken %>">
+              <form method="post" action="/kitapDuzenle/<%= book.kitapno %>?_csrf=<%= csrfToken %>">
                 <input type="hidden" name="kitapno", value="<%= book.kitapno %>">
+                
                 <div class="row">
                   <div class="col-25">
                     <label for="kitapadi" class="col-sm-2 col-form-label">Kitap Adı:</label>
@@ -91,10 +92,11 @@
                   <div class="col-75">
                     <input type="text" class="form-control" id="resim" name="resim" value="<%= book.resim %>">
                   </div>
+                  <input type="hidden" name="userid", value="<%= book.userid %>">
                 </div>
                 <div class="row">
                   <div>
-                    <button class="btn btn-primary">Kitabı Bilgilerini Güncelle</button>
+                    <button type="submit" class="btn btn-primary">Kitabı Bilgilerini Güncelle</button>
                   </div>
                 </div>
               </form>
