@@ -33,7 +33,7 @@
 .nav-alt{
     width: 100vw;
     background-color: #29293A;
-    padding: 1rem 1.25rem 1rem 6rem;
+    padding: 1.25rem 1.25rem 1.25rem 6rem;
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -45,7 +45,7 @@
 }
 .nav-alt ul li a {
     text-decoration: none;
-    padding: 0 2.5rem;
+    padding: 2.5rem;
     font-size: 1.5rem;
     color: white;
 }
@@ -54,34 +54,19 @@
     color: rgb(16, 173, 194);
 }
 
-.container h1{
-    text-align: center;
-    width: 100%;
-}
-.info{
-    margin-top: 50px;
-    width: 90%;
-}
-table{
-    width: 80%;
-}
-tr{
-    font-size: 1.5rem;
-    line-height: 5rem;
-}
-.bas{
-    margin-right: 50px;
-    font-weight: bold;
-}
+
+
 footer{
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    left: 0;
     background-color: #1D1D23;
     padding: 2.5rem;
     color: white;
-    position: fixed;
     width: 100%;
     display: flex;
-    bottom: 0;
-    left: 0px;
+    
 }
 footer i{
     font-size: 3.75rem;
@@ -94,6 +79,7 @@ footer i{
 .footer-yazi .het{
     margin: 1.25rem;
 }
+
 @media screen and (max-width: 768px) {
 
     .nav-alt{
@@ -113,6 +99,9 @@ footer i{
   .nav1 .yazi {
     display: none;
   }
+    .kitaplar {
+      grid-template-columns: repeat(3, 1fr);
+    }
 }
   
 @media screen and (max-width: 576px) {
@@ -128,6 +117,9 @@ footer i{
     .nav-alt ul{
         flex-direction: row;
     }
+    .kitaplar {
+      grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -136,6 +128,10 @@ footer i{
     }
     .nav-alt ul{
         flex-direction: row;
+        margin-bottom: 6%;
+    }
+    .kitaplar {
+      grid-template-columns: 1fr;
     }
     footer i{
         font-size: 2rem;
@@ -146,3 +142,5 @@ footer i{
         font-size: 0.75rem;
     } 
 }
+      
+      

@@ -66,6 +66,12 @@
     color: black;
     text-decoration: none;
     margin: 2.5rem;
+    padding: 1rem;
+    text-align: center;
+  }
+  .login .reset{
+    margin-top: 1rem;
+    text-align: center;
   }
   .foto img{
     width: 100%;

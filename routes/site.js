@@ -181,8 +181,7 @@ router.get("/:kitapno", async function (req, res) {
 });
 
 router.get("/", csrf, async function (req, res) {
-  // const size = 2;
-  // const { page = 0 } = req.query;
+
   if (!req.session.isAuth) {
     return res.redirect("/login");
   }
@@ -190,8 +189,7 @@ router.get("/", csrf, async function (req, res) {
     const book = await Book.findAll({ where: {
       userid: req.session.userid 
     },
-    // limit: size,
-    // offset : page * size,
+
    });
     const user = await User.findAll({ where: {
       userid: req.session.userid 
