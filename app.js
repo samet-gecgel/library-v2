@@ -72,3 +72,5 @@ app.listen(port, () => {
   console.log(`Web sunucusu ${port} portunda çalışıyor.`);
 });
 
+module.exports = app;
+
