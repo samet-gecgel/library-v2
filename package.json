@@ -5,7 +5,9 @@
   "main": "app.js",
   "type": "commonjs",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "build": "webpack --mode production"
+
   },
   "keywords": [],
   "author": "Samet Gecgel",
