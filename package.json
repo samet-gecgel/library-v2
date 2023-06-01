@@ -4,6 +4,10 @@
   "description": "",
   "main": "app.js",
   "type": "commonjs",
+  "engines": {
+    "node": "19.6.0"
+  },
+  
   "scripts": {
     "start": "nodemon app.js",
     "build": "webpack --mode production"
