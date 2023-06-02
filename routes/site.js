@@ -32,7 +32,7 @@ router.get("/delete/:kitapno", csrf , async function(req, res){
         book: book
       });
     }
-    res.redirect("/");
+    res.redirect("/home");
   } catch (err) {
     console.log(err);
   }
@@ -46,7 +46,7 @@ router.post("/delete/:kitapno", async function(req, res){
       await book.destroy();
       return res.redirect("/?action=delete");
     }
-    res.redirect("/");
+    res.redirect();
   } catch (err) {
     console.log(err);
   }
@@ -81,7 +81,7 @@ router.post("/kitapekle", async function (req, res) {
       resim : resim,
       userid : userid
     })
-    res.redirect("/");
+    res.redirect("/home");
   } catch (err) {
     console.log(err);
   }
@@ -100,7 +100,7 @@ router.get("/kitapDuzenle/:kitapno", csrf, async function (req, res) {
       }
       );
     }
-    res.redirect("/");
+    res.redirect("/home");
   } catch (err) {
     console.log(err);
   }
@@ -130,17 +130,17 @@ router.post("/kitapDuzenle/:kitapno", async function (req, res) {
   
       const updatedBook = await book.save();
       if (updatedBook) {
-        return res.redirect("/");
+        return res.redirect("/home");
       }
     }
-    res.redirect("/");
+    res.redirect("/home");
   } catch (err) {
     console.log(err);
   }
 });
 
 
-router.use("/anasayfa", function (req, res) {
+router.use("/", function (req, res) {
   res.render("anasayfa");
 });
 
@@ -174,13 +174,13 @@ router.get("/:kitapno", async function (req, res) {
         books: book
       });
     }
-    res.redirect("/");
+    res.redirect("/home");
   } catch (err) {
     console.log(err);
   }
 });
 
-router.get("/", csrf, async function (req, res) {
+router.get("/home", csrf, async function (req, res) {
 
   if (!req.session.isAuth) {
     return res.redirect("/login");
@@ -203,7 +203,7 @@ router.get("/", csrf, async function (req, res) {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/home", async (req, res) => {
   if (!req.session.isAuth) {
     return res.redirect("/login");
   }
