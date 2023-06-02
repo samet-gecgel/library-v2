@@ -1,6 +1,6 @@
 const config = require("../views/config");
 const Sequelize = require("sequelize");
-import mysql2 from 'mysql2';
+const mysql2 = require("mysql2");
 
 const sequelize = new Sequelize(config.db.database, config.db.user, config.db.password, {
   dialect: "mysql",
