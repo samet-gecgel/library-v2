@@ -7,6 +7,9 @@ const sequelize = new Sequelize(config.db.database, config.db.user, config.db.pa
   define: {
     timestamps: false
   },
+  dialectOptions: {
+    port : 3306,
+  },
   storage: "./session.mysql"
 });
 
