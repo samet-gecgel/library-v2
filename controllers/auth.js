@@ -28,7 +28,7 @@ exports.post_register = async function (req,res){
     const user = await User.findOne({where : {email : email}});
     if(user){
       req.session.message = { text : "Girdiğiniz email adresiyle daha önce kayıt olunmuş" , class: "warning"};
-      return res.redirect("register");
+      return res.redirect("/register");
     }
     const newUser = await User.create({
       fullname : fullname,
@@ -45,7 +45,7 @@ exports.post_register = async function (req,res){
 
     req.session.message = { text : "Hesabınıza tekrar giriş yapabilirsiniz"  , class: "success"};
 
-    return res.redirect("login");
+    return res.redirect("/login");
   }catch(err){
     console.log(err);
   }
@@ -94,7 +94,7 @@ exports.post_login = async function (req, res) {
       req.session.fullname = user.fullname;
       req.session.userid = user.userid;
       
-      const url = req.query.returnUrl ? req.query.returnUrl : "/home";
+      const url = req.query.returnUrl ? req.query.returnUrl : "/anasayfa";
       
       return res.redirect(url);
     }
@@ -153,7 +153,7 @@ exports.post_reset = async function (req, res) {
   });
 
   req.session.message = {text : "Parolanızı sıfırlamak için eposta adresinizi kontrol ediniz.", class : "success"};
-  res.redirect("login");
+  res.redirect("/login");
 
   }
   catch(err){
@@ -207,7 +207,7 @@ exports.post_newpassword = async function(req, res) {
       await user.save();
 
       req.session.message = {text: "parolanız güncellendi", class:"success"};
-      return res.redirect("login");
+      return res.redirect("/login");
   }
   catch(err) {
       console.log(err);

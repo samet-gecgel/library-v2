@@ -32,7 +32,7 @@ router.get("/delete/:kitapno", csrf , async function(req, res){
         book: book
       });
     }
-    res.redirect("/home");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
@@ -46,7 +46,7 @@ router.post("/delete/:kitapno", async function(req, res){
       await book.destroy();
       return res.redirect("/?action=delete");
     }
-    res.redirect();
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
@@ -54,7 +54,7 @@ router.post("/delete/:kitapno", async function(req, res){
 
 router.get("/kitapekle", csrf, async function (req, res) {
   if(!req.session.isAuth){
-    return res.redirect("/login");
+    return res.redirect("/anasayfa");
   }
   try {
     res.render("kitapekle");
@@ -81,14 +81,14 @@ router.post("/kitapekle", async function (req, res) {
       resim : resim,
       userid : userid
     })
-    res.redirect("/home");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
 });
 router.get("/kitapDuzenle/:kitapno", csrf, async function (req, res) {
   if(!req.session.isAuth){
-    return res.redirect("/login");
+    return res.redirect("/anasayfa");
   }
   const kitapno = req.params.kitapno;
   try {
@@ -100,7 +100,7 @@ router.get("/kitapDuzenle/:kitapno", csrf, async function (req, res) {
       }
       );
     }
-    res.redirect("/home");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
@@ -130,24 +130,24 @@ router.post("/kitapDuzenle/:kitapno", async function (req, res) {
   
       const updatedBook = await book.save();
       if (updatedBook) {
-        return res.redirect("/home");
+        return res.redirect("/");
       }
     }
-    res.redirect("/home");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
 });
 
 
-router.get("/", function (req, res) {
+router.get("/anasayfa", function (req, res) {
   res.render("anasayfa");
 });
 
 router.get("/profil/:userid", async function (req, res) {
   const userid = req.session.userid;
   if (!req.session.isAuth) {
-    return res.redirect("/login");
+    return res.redirect("/anasayfa");
   }
   try {
     const user = await User.findByPk(userid);
@@ -164,7 +164,7 @@ router.get("/profil/:userid", async function (req, res) {
 router.get("/:kitapno", async function (req, res) {
   const kitapno = req.params.kitapno;
   if (!req.session.isAuth) {
-    return res.redirect("/login");
+    return res.redirect("/anasayfa");
   }
   try {
     const book = await Book.findByPk(kitapno);
@@ -174,55 +174,48 @@ router.get("/:kitapno", async function (req, res) {
         books: book
       });
     }
-    res.redirect("/home");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
 });
 
-router.get("/home", csrf, async function (req, res) {
-
+router.get("/", csrf, async function (req, res) {
   if (!req.session.isAuth) {
-    return res.redirect("/login");
-  }
-  try {
-    const book = await Book.findAll({ where: {
-      userid: req.session.userid 
-    },
-
-   });
-    const user = await User.findAll({ where: {
-      userid: req.session.userid 
-    } });
-    res.render("home", {
-      books: book,
-      users: user
-    });
-  } catch (err) {
-    console.log(err);
-  }
-});
-
-router.post("/home", async (req, res) => {
-  if (!req.session.isAuth) {
-    return res.redirect("/login");
+    return res.redirect("/anasayfa");
   }
   try {
     const books = await Book.findAll({ where: { userid: req.session.userid } });
     const users = await User.findAll({ where: { userid: req.session.userid } });
-    
-    res.render("home", { books: books,  
-    users: users});
-    
-  
-    
+    res.render("kitaplar", { books: books, users: users });
   } catch (err) {
     console.log(err);
   }
-
-
-  
 });
+
+router.post("/", async (req, res) => {
+  if (!req.session.isAuth) {
+    return res.redirect("/anasayfa");
+  }
+  try {
+    const searchQuery = req.body.arama;
+    const books = await Book.findAll({
+      where: {
+        userid: req.session.userid,
+        [Op.or]: [
+          { kitapadi: { [Op.like]: `%${searchQuery}%` } },
+          { yazaradi: { [Op.like]: `%${searchQuery}%` } },
+          { kategori: { [Op.like]: `%${searchQuery}%` } }
+        ]
+      }
+    });
+    const users = await User.findAll({ where: { userid: req.session.userid } });
+    res.render("arama", { books: books, users: users });
+  } catch (err) {
+    console.log(err);
+  }
+});
+  
 
 module.exports = router;
 // const searchQuery = req.body.arama;

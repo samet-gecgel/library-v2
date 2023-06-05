@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 
 // node modules
 const path = require('path');
-const env = require('./env');
+// const env = require('./env');
 
 // routes
 const siteRoutes = require("./routes/site");
@@ -31,7 +31,7 @@ const User = require("./models/user");
 app.use(express.urlencoded({extended : false}));
 app.use(cookieParser());
 app.use(session({
-  secret : "hello world",
+  secret : "02072001Sgrio",
   resave : false , 
   saveUninitialized : false,
   cookie :{
@@ -67,7 +67,7 @@ User.hasMany(Book, { as: 'books', foreignKey: 'userid' });
 
 
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 app.listen(port, () => {
   console.log(`Web sunucusu ${port} portunda çalışıyor.`);
 });

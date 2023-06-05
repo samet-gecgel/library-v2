@@ -1,16 +1,16 @@
 const config = {
-    db: {
+  db : {
       connectionLimit: 1,
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
-    },
-    email: {
-      username: "sametgecgel68@hotmail.com",
-      password: "Sgrio1453.",
-      from: "sametgecgel68@hotmail.com"
-    }
-  };
-  
-  module.exports = config;
+      host: '127.0.0.1',
+      user: 'root',
+      password: 'Sifre1453.',
+      database: 'bookdb',
+  },
+  email: {
+      username : "sametgecgel68@hotmail.com",
+      password : "Sgrio1453.",
+      from : "sametgecgel68@hotmail.com"
+  }
+};
+
+module.exports = config;

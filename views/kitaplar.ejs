@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
   <link rel="shortcut icon" type="image/x-icon" href="/resim/book.png">
-  <link rel="stylesheet" href="/css/homestyle.css">
+  <link rel="stylesheet" href="/css/kitaplarstyle.css">
   <title>GeçgeLibrary</title>
 </head>
 <body>
@@ -23,9 +23,9 @@
         </div>
         <div class="nav-alt">
           <ul>
-          <li><a href="/" class="nav-link">Anasayfa</a></li>
+          <li><a href="/anasayfa" class="nav-link">Anasayfa</a></li>
           <% if (isAuth) { %> 
-            <li><a href="/home" class="nav-link">Kitaplar</a></li>
+            <li><a href="/" class="nav-link">Kitaplar</a></li>
             <li><a href="/kitapekle" class="nav-link">Kitap Ekle</a></li>
             <% users.forEach(function(users) { %>
               <li><a href="/profil/<%= users.userid %>" class="nav-link">Hesabım</a></li>
@@ -41,8 +41,8 @@
               <% } %>
         </ul>
         <form method="POST" class="ara">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <input type="text" name="arama" placeholder="Kitap Ara" class="arama">
-          <!-- <button type="submit" class="arabtn">Ara</button> -->
         </form>
       </div>
       </nav>

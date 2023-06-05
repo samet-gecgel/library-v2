@@ -1,6 +1,6 @@
 const config = require("../views/config");
 const Sequelize = require("sequelize");
-const mysql = require("mysql2");
+// const mysql = require("mysql2");
 
 const sequelize = new Sequelize(config.db.database, config.db.user, config.db.password, {
   dialect: "mysql",
@@ -8,11 +8,8 @@ const sequelize = new Sequelize(config.db.database, config.db.user, config.db.pa
   define: {
     timestamps: false
   },
-  dialectModule: mysql,
+  // dialectModule: mysql,
   storage: "./session.mysql",
-  dialectOptions: {
-    port: 3306,
-  }
 });
 
 async function connect() {

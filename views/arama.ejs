@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="fsgecgelibrary gecgelibrary">
+  <meta name="author" content="Samet Geçgel">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="/resim/book.png">
+  <link rel="stylesheet" href="/css/anasayfastyle.css">
+  <title>GeçgeLibrary</title>
+</head>
+<body>
+  <div class="container"> 
+    <nav class="ust">
+      <div class="kapsayici nav1">
+        <div class="bas">
+          <i class="fa-solid fa-book"></i>
+          <h1>GeçgeLibrary</h1>
+        </div>
+        <div class="yazi">“Kitaplar zamanın büyük denizinde dikilmiş deniz fenerleridir.”</div>
+      </div>
+      <div class="nav-alt">
+        <ul>
+          <li><a href="/anasayfa" class="nav-link">Anasayfa</a></li>
+          <% if (isAuth) { %> 
+            <li><a href="/" class="nav-link">Kitaplar</a></li>
+            <li><a href="/kitapekle" class="nav-link">Kitap Ekle</a></li>
+            <li><a href="/profil" class="nav-link">Hesabım</a></li>
+          <% } %>
+          <% if (isAuth) { %>
+            <li><a href="/logout" class="nav-link">Çıkış Yap</a></li>
+          <% } else { %>
+            <li><a href="/register" class="nav-link">Kayıt Ol</a></li>
+            <li><a href="/login" class="nav-link">Giriş Yap</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </nav>
+    <div class="orta">
+      <h1>Kütüphanemize Hoşgeldiniz</h1>
+    </div>
+    <form method="POST" class="ara" onsubmit="submitForm(event)">
+      <input type="text" name="arama" placeholder="Kitap Ara" class="arama">
+      <button type="submit">Ara</button>
+    </form>
+    <% if (books && books.length > 0) { %>
+      <div class="kitaplar">
+        <% books.forEach((book) => { %>
+          <div class="kitap">
+            <h2><%= book.kitapadi %></h2>
+            <h3><%= book.yazaradi %></h3>
+            <h4><%= book.kategori %></h4>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <p>Aradığınız kriterlere uygun kitap bulunamadı.</p>
+    <% } %>
+    <footer class="footer">
+      <i class="fa-solid fa-book"></i>
+      <div class="footer-yazi">
+        <h3 class="het">İletişim için benimle irtibata geçiniz.</h3>
+        <h3>© 2023 Tüm Haklar bana aittir.</h3>
+      </div>
+    </footer>
+  </div>
+  <script>
+    function submitForm(event) {
+      event.preventDefault(); // Varsayılan form davranışını engelle
+      const form = event.target;
+      const formData = new FormData(form);
+  
+      // Form verilerini kullanarak isteği istediğiniz URL'ye gönderin
+      fetch('/arama', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = '/arama'; // Arama sonuçları sayfasına yönlendir
+        }
+      })
+      .catch(error => {
+        console.error('Arama hatası:', error);
+      });
+    }
+  </script>
+  
+</body>
+</html>
