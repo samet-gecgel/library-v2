@@ -1,10 +1,10 @@
 const config = {
   db : {
       connectionLimit: 1,
-      host: 'bwpu3iu7vxlxpddpbzdg-mysql.services.clever-cloud.com',
-      user: 'uui3nylnhqs5fcjm',
-      password: '1ouI0np0GxdxgBggQ1r9',
-      database: 'bwpu3iu7vxlxpddpbzdg',
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
       port: 3306
   },
   email: {
