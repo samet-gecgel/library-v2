@@ -5,8 +5,7 @@
   "main": "app.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node app.js",
-    "build": "webpack --mode production"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Samet Gecgel",
@@ -33,4 +32,5 @@
   "devDependencies": {
     "nodemon": "^2.0.21"
   }
+  
 }
