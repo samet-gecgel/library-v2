@@ -5,6 +5,7 @@ const config = {
       user: 'root',
       password: 'Sifre1453.',
       database: 'bookdb',
+      port: 3306
   },
   email: {
       username : "sametgecgel68@hotmail.com",
