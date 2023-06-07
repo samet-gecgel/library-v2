@@ -2,13 +2,16 @@ const config = require("../views/config");
 const Sequelize = require("sequelize");
 // const mysql = require("mysql2");
 
-const sequelize = new Sequelize(config.db.database, config.db.user, config.db.password, {
+const sequelize = new Sequelize(
+  'bwpu3iu7vxlxpddpbzdg', 
+  'uui3nylnhqs5fcjm', 
+  '1ouI0np0GxdxgBggQ1r9', {
   dialect: "mysql",
-  host: config.db.host,
+  host:  'bwpu3iu7vxlxpddpbzdg-mysql.services.clever-cloud.com',
   define: {
     timestamps: false
   },
-  port : config.db.port,
+  port : 3306,
   // dialectModule: mysql,
   storage: "./session.mysql",
   
