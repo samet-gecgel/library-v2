@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "libraryV2",
+    "name": "library-v2",
     "builds": [
        { "src": "app.js", "use": "@vercel/node" }
     ],
