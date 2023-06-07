@@ -2,7 +2,7 @@
 const Sequelize = require("sequelize");
 require('dotenv').config()
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize('mysql://mmvtzo3jlxzn824eswnw:pscale_pw_ha6zy1kcEYKOiSBThKrYdTPreOAvu3CBzrAMDiq8kK7@aws.connect.psdb.cloud/library-v2', {
   dialect: 'mysql',
   dialectOptions: {
     ssl: {
