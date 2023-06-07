@@ -1,11 +1,10 @@
 const config = {
   db : {
       connectionLimit: 1,
-      host: 'bwpu3iu7vxlxpddpbzdg-mysql.services.clever-cloud.com',
-      user: 'uui3nylnhqs5fcjm',
-      password: '1ouI0np0GxdxgBggQ1r9',
-      database: 'bwpu3iu7vxlxpddpbzdg',
-      port: 3306
+      host: 'aws.connect.psdb.cloud',
+      user: 'mmvtzo3jlxzn824eswnw',
+      password: 'pscale_pw_ha6zy1kcEYKOiSBThKrYdTPreOAvu3CBzrAMDiq8kK7',
+      database: 'library-v2',
   },
   email: {
       username : "sametgecgel68@hotmail.com",

@@ -1,14 +1,15 @@
-const config = require("../views/config");
+//const config = require("../views/config");
 const Sequelize = require("sequelize");
+require('dotenv').config()
 
-const sequelize = new Sequelize(config.db.database, config.db.user, config.db.password, {
-    dialect: "mysql",
-    host: config.db.host,
-    define: {
-        timestamps: false
-    },
-    storage: "./session.mysql"
-});
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'mysql',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: true
+  }
+}});
 
 async function connect() {
   try {
