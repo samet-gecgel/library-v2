@@ -1,4 +1,4 @@
-//const config = require("../views/config");
+const config = require("../views/config");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 
@@ -8,8 +8,8 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     ssl: {
       rejectUnauthorized: true,
       },
-      },
-    });
+    },
+  });
 
 async function connect() {
   try {
