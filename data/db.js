@@ -2,16 +2,7 @@ const config = require("../views/config");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 
-const sequelize = new Sequelize({
-  host: config.db.host,
-  username: config.db.user,
-  password: config.db.password,
-  database: config.db.database,
-  port: config.db.port,
-  dialect: "mysql",
-  
-  
-});
+const sequelize = new Sequelize(config.db.urlDB);
 
 async function connect() {
   try {
