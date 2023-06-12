@@ -57,7 +57,7 @@ Book.belongsTo(User, { as: 'users', foreignKey: 'userid' });
 User.hasMany(Book, { as: 'books', foreignKey: 'userid' });
 
 (async () => {
-  await sequelize.sync({ force: true });
+  // await sequelize.sync({ force: true });
   // await Book.sync({ alter: true });
   // await User.sync({ alter: true });
 })();
