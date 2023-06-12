@@ -49,7 +49,7 @@
     color: rgb(16, 173, 194);
 }
 .orta{
-    background-image: url("../resim/kapak.png");
+    background-image: url("../resim/book.gif");
     height: 70vh;
     background-size: cover;
     background-position: center;
@@ -61,6 +61,7 @@
     top: 40%;
     left: 2%;
     font-size: 3rem;
+    text-shadow: 2px 2px 4px black;
 }
 footer{
     background-color: #1D1D23;

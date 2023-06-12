@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 
 // node modules
 const path = require('path');
-// const env = require('./env');
+const env = require('./env');
 
 // routes
 const siteRoutes = require("./routes/site");
@@ -53,8 +53,8 @@ app.use("/resim",express.static(path.join(__dirname , "/public/resim")))
 
 app.use(siteRoutes);
 
-//Book.belongsTo(User, { as: 'users', foreignKey: 'userid' });
-//User.hasMany(Book, { as: 'books', foreignKey: 'userid' });
+Book.belongsTo(User, { as: 'users', foreignKey: 'userid' });
+User.hasMany(Book, { as: 'books', foreignKey: 'userid' });
 
 (async () => {
   // await sequelize.sync({ force: true });

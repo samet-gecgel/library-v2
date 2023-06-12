@@ -2,14 +2,7 @@ const config = require("../views/config");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: "mysql",
-  dialectOptions: {
-    ssl: {
-      rejectUnauthorized: true,
-      },
-    },
-  });
+const sequelize = new Sequelize("mysql://root:zXZUv5b3BBj3eIGvj9ot@containers-us-west-201.railway.app:6960/railway");
 
 async function connect() {
   try {
