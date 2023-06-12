@@ -1,10 +1,11 @@
 const config = {
   db : {
       connectionLimit: 1,
-      host: 'containers-us-west-201.railway.app',
-      user: 'root',
-      password: 'zXZUv5b3BBj3eIGvj9ot',
-      database: 'railway',
+      host: process.env.MYSQLHOST,
+      user: process.env.MYSQLUSER,
+      password: process.env.MYSQLPASSWORD,
+      database: process.env.MYSQLDATABASE,
+      port: process.env.MYSQLPORT
   },
   email: {
       username : "sametgecgel68@hotmail.com",
