@@ -23,9 +23,9 @@
         </div>
         <div class="nav-alt">
           <ul>
-          <li><a href="/" class="nav-link">Anasayfa</a></li>
+          <li><a href="/anasayfa" class="nav-link">Anasayfa</a></li>
           <% if (isAuth) { %> 
-            <li><a href="/kitaplar" class="nav-link">Kitaplar</a></li>
+            <li><a href="/" class="nav-link">Kitaplar</a></li>
             <li><a href="/kitapekle" class="nav-link">Kitap Ekle</a></li>
             <% users.forEach(function(users) { %>
               <li><a href="/profil/<%= users.userid %>" class="nav-link">Hesabım</a></li>

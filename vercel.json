@@ -4,7 +4,7 @@
      { "src": "app.js", "use": "@vercel/node" }
    ],
    "routes": [
-     { "src": "/", "dest": "/views/anasayfa.ejs" },
+     { "src": "/anasayfa", "dest": "/views/anasayfa.ejs" },
      { "src": "/(.*)", "dest": "/app.js" }
    ],
    "rewrites": []

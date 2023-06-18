@@ -32,7 +32,7 @@ router.get("/delete/:kitapno", csrf , async function(req, res){
         book: book
       });
     }
-    res.redirect("/kitaplar");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
@@ -46,7 +46,7 @@ router.post("/delete/:kitapno", async function(req, res){
       await book.destroy();
       return res.redirect("/?action=delete");
     }
-    res.redirect("/kitaplar");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
@@ -54,7 +54,7 @@ router.post("/delete/:kitapno", async function(req, res){
 
 router.get("/kitapekle", csrf, async function (req, res) {
   if(!req.session.isAuth){
-    return res.redirect("/");
+    return res.redirect("/anasayfa");
   }
   try {
     res.render("kitapekle");
@@ -81,14 +81,14 @@ router.post("/kitapekle", async function (req, res) {
       resim : resim,
       userid : userid
     })
-    res.redirect("/kitaplar");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
 });
 router.get("/kitapDuzenle/:kitapno", csrf, async function (req, res) {
   if(!req.session.isAuth){
-    return res.redirect("/");
+    return res.redirect("/anasayfa");
   }
   const kitapno = req.params.kitapno;
   try {
@@ -100,7 +100,7 @@ router.get("/kitapDuzenle/:kitapno", csrf, async function (req, res) {
       }
       );
     }
-    res.redirect("/kitaplar");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
@@ -130,17 +130,17 @@ router.post("/kitapDuzenle/:kitapno", async function (req, res) {
   
       const updatedBook = await book.save();
       if (updatedBook) {
-        return res.redirect("/kitaplar");
+        return res.redirect("/");
       }
     }
-    res.redirect("/kitaplar");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
 });
 
 
-router.get("/", function (req, res) {
+router.get("/anasayfa", function (req, res) {
   res.render("anasayfa");
 });
 
@@ -148,7 +148,7 @@ router.get("/", function (req, res) {
 router.get("/profil/:userid", async function (req, res) {
   const userid = req.session.userid;
   if (!req.session.isAuth) {
-    return res.redirect("/");
+    return res.redirect("/anasayfa");
   }
   try {
     const user = await User.findByPk(userid);
@@ -165,7 +165,7 @@ router.get("/profil/:userid", async function (req, res) {
 router.get("/:kitapno", async function (req, res) {
   const kitapno = req.params.kitapno;
   if (!req.session.isAuth) {
-    return res.redirect("/");
+    return res.redirect("/anasayfa");
   }
   try {
     const book = await Book.findByPk(kitapno);
@@ -175,15 +175,15 @@ router.get("/:kitapno", async function (req, res) {
         books: book
       });
     }
-    res.redirect("/kitaplar");
+    res.redirect("/");
   } catch (err) {
     console.log(err);
   }
 });
 
-router.get("/kitaplar", csrf, async function (req, res) {
+router.get("/", csrf, async function (req, res) {
   if (!req.session.isAuth) {
-    return res.redirect("/");
+    return res.redirect("/anasayfa");
   }
   try {
     const books = await Book.findAll({ where: { userid: req.session.userid } });
@@ -194,9 +194,9 @@ router.get("/kitaplar", csrf, async function (req, res) {
   }
 });
 
-router.post("/kitaplar", async (req, res) => {
+router.post("/", async (req, res) => {
   if (!req.session.isAuth) {
-    return res.redirect("/");
+    return res.redirect("/anasayfa");
   }
   try {
     const searchQuery = req.body.arama;
