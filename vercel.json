@@ -1,6 +1,5 @@
 {
    "version": 2,
-   "name": "library-v2",
    "builds": [
      { "src": "app.js", "use": "@vercel/node" }
    ],
@@ -11,5 +10,4 @@
    "rewrites": [
      { "source": "/views/anasayfa.ejs", "destination": "/anasayfa" }
    ]
- }
- 
+}
