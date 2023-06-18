@@ -140,10 +140,9 @@ router.post("/kitapDuzenle/:kitapno", async function (req, res) {
 });
 
 
-router.get("/", function (req, res) {
-  res.redirect("/anasayfa");
+router.get("/anasayfa", function (req, res) {
+  res.render("anasayfa");
 });
-
 
 router.get("/profil/:userid", async function (req, res) {
   const userid = req.session.userid;
