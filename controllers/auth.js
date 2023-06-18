@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const emailService = require("../helpers/send-mail");
-const config = require("../views/config");
+const config = require("../config");
 const crypto = require("crypto");
 const { Op } = require("sequelize");
 

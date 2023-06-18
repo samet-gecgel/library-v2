@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const config = require("../views/config");
+const config = require("../config");
 
 var tranporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com",

@@ -1,4 +1,4 @@
-const config = require("../views/config");
+const config = require("../config");
 const Sequelize = require("sequelize");
 require('dotenv').config()
 
