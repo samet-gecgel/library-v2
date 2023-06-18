@@ -5,8 +5,9 @@
    ],
    "routes": [
      { "src": "/anasayfa", "dest": "/views/anasayfa.ejs" },
-     { "src": "/views/(.*)", "dest": "/views/$1" },
      { "src": "/(.*)", "dest": "/app.js" }
+   ],
+   "rewrites": [
+     { "source": "/anasayfa", "destination": "/views/anasayfa.ejs" }
    ]
- }
- 
+}
