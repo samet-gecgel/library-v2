@@ -1,8 +1,12 @@
 const config = require("../config");
-const Sequelize = require("sequelize");
+const Sequelize  = require('sequelize');
+const mysql2 = require('mysql2');
 require('dotenv').config()
 
-const sequelize = new Sequelize(config.db.urlDB);
+const sequelize = new Sequelize(config.db.urlDB, {
+  dialect: 'mysql',
+  dialectModule: mysql2,
+});
 
 async function connect() {
   try {
