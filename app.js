@@ -46,7 +46,7 @@ app.use(locals);
 app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+app.set("views", path.join(__dirname, "views"));
 app.use("/views", express.static(path.join(__dirname, "public")));
 app.use('/css', express.static(__dirname + '/public/css'));
 app.use("/resim",express.static(path.join(__dirname , "/public/resim")))
