@@ -141,7 +141,7 @@ router.post("/kitapDuzenle/:kitapno", async function (req, res) {
 
 
 router.get("/", function (req, res) {
-  res.render("anasayfa");
+  res.redirect("/anasayfa");
 });
 
 
