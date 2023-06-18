@@ -5,7 +5,7 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const session = require('express-session');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const csurf = require("csurf");
+const helmet = require("helmet");
 const bodyParser = require('body-parser');
 
 
@@ -43,7 +43,7 @@ app.use(session({
 }));
 
 app.use(locals);
-app.use(csurf());
+app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
@@ -54,7 +54,7 @@ app.use("/resim",express.static(path.join(__dirname , "/public/resim")))
 app.use(siteRoutes);
 
 Book.belongsTo(User, { as: 'users', foreignKey: 'userid' });
-//User.hasMany(Book, { as: 'books', foreignKey: 'userid' });
+User.hasMany(Book, { as: 'books', foreignKey: 'userid' });
 
 (async () => {
   // await sequelize.sync({ force: true });

@@ -59,7 +59,7 @@ exports.get_login = async function (req, res) {
   try{
     return res.render("login",{
       message : message,
-      csrfToken: req.csrfToken()
+      //csrfToken: req.csrfToken()
     });
   }
   catch(err){
