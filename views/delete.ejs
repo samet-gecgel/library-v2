@@ -24,9 +24,9 @@
           </div>
           <div class="nav-alt">
             <ul>
-            <li><a href="/anasayfa" class="nav-link">Anasayfa</a></li>
+            <li><a href="/" class="nav-link">Anasayfa</a></li>
             <% if (isAuth) { %> 
-              <li><a href="/" class="nav-link">Kitaplar</a></li>
+              <li><a href="/kitaplar" class="nav-link">Kitaplar</a></li>
               <li><a href="/kitapekle" class="nav-link">Kitap Ekle</a></li>
               <li><a href="/profil" class="nav-link">Hesabım</a></li>
               <% } %>
@@ -39,7 +39,7 @@
                 <li><a href="/login" class="nav-link">Giriş Yap</a></li>
                 <% } %>
           </ul>
-          <form action="/" method="POST" class="ara" >
+          <form action="/kitaplar" method="POST" class="ara" >
             <input type="hidden" name="_csrf" value="<%= csrfToken%>">
             <input type="text" name="arama" placeholder="Kitap Ara" class="arama">
             <!-- <button type="submit" class="arabtn">Ara</button> -->
@@ -59,7 +59,7 @@
                     <input type="hidden" name="kitpadi" value="<%= book.kitapadi %>">
                     <input type="hidden" name="kitapno" value="<%= book.kitapno %>">
                     <button class="btn btn-danger" type="submit">Evet</button>
-                    <a href="/" class="btn btn-primary">Vazgeç</a>
+                    <a href="/kitaplar" class="btn btn-primary">Vazgeç</a>
                 </form>
                </div>
             </div>

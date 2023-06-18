@@ -94,7 +94,7 @@ exports.post_login = async function (req, res) {
       req.session.fullname = user.fullname;
       req.session.userid = user.userid;
       
-      const url = req.query.returnUrl ? req.query.returnUrl : "/anasayfa";
+      const url = req.query.returnUrl ? req.query.returnUrl : "/";
       
       return res.redirect(url);
     }
