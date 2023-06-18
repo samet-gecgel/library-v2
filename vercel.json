@@ -1,11 +1,15 @@
 {
-    "version": 2,
-    "name": "library-v2",
-    "builds": [
-       { "src": "app.js", "use": "@vercel/node" }
-    ],
-    "routes": [
-       { "src": "/anasayfa", "dest": "/views/anasayfa.ejs" },
-       { "src": "/(.*)", "dest": "/app.js" }
-    ]
+   "version": 2,
+   "name": "library-v2",
+   "builds": [
+     { "src": "app.js", "use": "@vercel/node" }
+   ],
+   "routes": [
+     { "src": "/anasayfa", "dest": "/views/anasayfa.ejs" },
+     { "src": "/(.*)", "dest": "/app.js" }
+   ],
+   "rewrites": [
+     { "source": "/views/anasayfa.ejs", "destination": "/anasayfa" }
+   ]
  }
+ 
