@@ -7,7 +7,6 @@
      { "src": "/anasayfa", "dest": "/views/anasayfa.ejs" },
      { "src": "/(.*)", "dest": "/app.js" }
    ],
-   "rewrites": [
-     { "source": "/anasayfa", "destination": "/views/anasayfa.ejs" }
-   ]
-}
+   "rewrites": []
+ }
+ 
